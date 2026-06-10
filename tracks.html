@@ -1,1 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>楽曲一覧 — 底なき海</title>
+  <style>
+    body {
+      background-color: #0D2137;
+      color: #A8DADE;
+      text-align: center;
+      font-family: sans-serif;
+      padding: 4rem 2rem;
+    }
+    h1 { font-weight: normal; font-size: 2rem; margin-bottom: 0.5rem; }
+    .back { display: inline-block; color: #A8DADE; text-decoration: none; opacity: 0.4; font-size: 13px; margin-bottom: 3rem; }
+    .back:hover { opacity: 0.8; }
+    .list { max-width: 480px; margin: 0 auto; }
+    .track {
+      border-bottom: 1px solid rgba(168,218,222,0.15);
+      cursor: pointer;
+      text-align: left;
+    }
+    .track-title {
+      padding: 14px 4px;
+      font-size: 15px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .track-title::after { content: '+'; opacity: 0.4; font-size: 18px; }
+    .track.open .track-title::after { content: '−'; opacity: 0.7; }
+    .track-body {
+      display: none;
+      opacity: 0.6;
+      font-size: 13px;
+      line-height: 1.9;
+      padding: 0 4px 14px;
+    }
+  </style>
+</head>
+<body>
+  <a href="index.html" class="back">← 底なき海</a>
+  <h1>楽曲一覧</h1>
+
+  <div class="list">
+    <div class="track" onclick="toggle('t1')">
+      <div class="track-title">E-BlackHole</div>
+      <div id="t1" class="track-body">ここに解説を書く</div>
+    </div>
+    <div class="track" onclick="toggle('t2')">
+      <div class="track-title">底なし街</div>
+      <div id="t2" class="track-body">ここに解説を書く</div>
+    </div>
+    <div class="track" onclick="toggle('t3')">
+      <div class="track-title">Fog of Foam</div>
+      <div id="t3" class="track-body">ここに解説を書く</div>
+    </div>
+    <div class="track" onclick="toggle('t4')">
+      <div class="track-title">Xabónと泡</div>
+      <div id="t4" class="track-body">ここに解説を書く</div>
+    </div>
+    <div class="track" onclick="toggle('t5')">
+      <div class="track-title">光るパールを拾う</div>
+      <div id="t5" class="track-body">ここに解説を書く</div>
+    </div>
+    <div class="track" onclick="toggle('t6')">
+      <div class="track-title">浜辺</div>
+      <div id="t6" class="track-body">ここに解説を書く</div>
+    </div>
+    <div class="track" onclick="toggle('t7')">
+      <div class="track-title">Virus tr</div>
+      <div id="t7" class="track-body">ここに解説を書く</div>
+    </div>
+    <div class="track" onclick="toggle('t8')">
+      <div class="track-title">DIMENTIA</div>
+      <div id="t8" class="track-body">ここに解説を書く</div>
+    </div>
+    <div class="track" onclick="toggle('t9')">
+      <div class="track-title">ANESTHASIA</div>
+      <div id="t9" class="track-body">ここに解説を書く</div>
+    </div>
+  </div>
+
+  <script>
+    function toggle(id) {
+      const body = document.getElementById(id);
+      const track = body.closest('.track');
+      const isOpen = track.classList.contains('open');
+      document.querySelectorAll('.track').forEach(t => {
+        t.classList.remove('open');
+        t.querySelector('.track-body').style.display = 'none';
+      });
+      if (!isOpen) {
+        track.classList.add('open');
+        body.style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
 
