@@ -39,10 +39,9 @@
     .track {
       border-bottom: 1px solid transparent;
       border-image: linear-gradient(to right, transparent, rgba(168,218,222,0.2), transparent) 1;
-      cursor: pointer;
       text-align: left;
     }
-    .track-title {
+    .track-header {
       padding: 16px 4px;
       font-size: 1rem;
       letter-spacing: 0.05em;
@@ -51,18 +50,35 @@
       align-items: center;
       transition: color 0.3s, text-shadow 0.3s;
     }
-    .track:hover .track-title {
+    .track-header .title-link {
+      color: #A8DADE;
+      text-decoration: none;
+      transition: color 0.3s, text-shadow 0.3s;
+    }
+    .track-header .title-link:hover {
       color: #D8F0F2;
       text-shadow: 0 0 16px rgba(168,218,222,0.4);
     }
-    .track-title::after {
-      content: '+';
-      opacity: 0.3;
+    .track-header .title-text {
+      color: #A8DADE;
+    }
+    .track:hover .track-header .title-text {
+      color: #D8F0F2;
+      text-shadow: 0 0 16px rgba(168,218,222,0.4);
+    }
+    .toggle-btn {
+      background: none;
+      border: none;
+      color: #A8DADE;
+      cursor: pointer;
       font-size: 1.2rem;
       font-family: 'Cormorant Garamond', serif;
+      opacity: 0.3;
+      padding: 0 4px;
       transition: opacity 0.3s;
+      flex-shrink: 0;
     }
-    .track.open .track-title::after { content: '−'; opacity: 0.6; }
+    .track.open .toggle-btn { opacity: 0.6; }
     .track-body {
       display: none;
       opacity: 0.6;
@@ -71,52 +87,117 @@
       padding: 0 4px 16px;
       letter-spacing: 0.04em;
     }
+    .page-link {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: #A8DADE;
+      text-decoration: none;
+      opacity: 0.35;
+      border: 1px solid rgba(168,218,222,0.2);
+      padding: 3px 8px;
+      border-radius: 2px;
+      margin-left: 0.8rem;
+      flex-shrink: 0;
+      transition: opacity 0.3s, border-color 0.3s;
+    }
+    .page-link:hover {
+      opacity: 0.7;
+      border-color: rgba(168,218,222,0.45);
+    }
   </style>
 </head>
 <body>
   <a href="index.html" style="position:fixed; top:1.2rem; left:1.5rem; z-index:100;">
-  <img src="176.png" alt="底なき海" style="height:40px;">
-</a>
+    <img src="176.png" alt="底なき海" style="height:40px;">
+  </a>
   <a href="index.html" class="back">← 底なき海</a>
   <h1>楽曲一覧</h1>
 
   <div class="list">
-    <div class="track" onclick="toggle('t1')">
-      <div class="track-title">E-BlackHole</div>
+
+    <div class="track" id="track-t1">
+      <div class="track-header">
+        <span class="title-text">E-BlackHole</span>
+        <button class="toggle-btn" onclick="toggle('t1')">+</button>
+      </div>
       <div id="t1" class="track-body">強い重力を伴った、底なし街への入り口。発生場所に規則性はない。</div>
     </div>
-    <div class="track" onclick="toggle('t2')">
-      <div class="track-title">底なし街</div>
+
+    <div class="track" id="track-t2">
+      <div class="track-header">
+        <span class="title-text">底なし街</span>
+        <button class="toggle-btn" onclick="toggle('t2')">+</button>
+      </div>
       <div id="t2" class="track-body">最も煌びやかで、最も深い闇を携えた、海中の街。</div>
     </div>
-    <div class="track" onclick="toggle('t3')">
-      <div class="track-title">Fog of Foam</div>
+
+    <div class="track" id="track-t3">
+      <div class="track-header">
+        <a href="track-count-song.html" class="title-link">カウント・ソング</a>
+        <div style="display:flex; align-items:center; gap:0.5rem;">
+          <a href="track-count-song.html" class="page-link">詳細 →</a>
+          <button class="toggle-btn" onclick="toggle('t3')">+</button>
+        </div>
+      </div>
       <div id="t3" class="track-body">ここに解説を書く</div>
     </div>
-    <div class="track" onclick="toggle('t4')">
-      <div class="track-title">Xabónと泡</div>
+
+    <div class="track" id="track-t4">
+      <div class="track-header">
+        <span class="title-text">Fog of Foam</span>
+        <button class="toggle-btn" onclick="toggle('t4')">+</button>
+      </div>
       <div id="t4" class="track-body">ここに解説を書く</div>
     </div>
-    <div class="track" onclick="toggle('t5')">
-      <div class="track-title">光るパールを拾う</div>
+
+    <div class="track" id="track-t5">
+      <div class="track-header">
+        <span class="title-text">Xabónと泡</span>
+        <button class="toggle-btn" onclick="toggle('t5')">+</button>
+      </div>
       <div id="t5" class="track-body">ここに解説を書く</div>
     </div>
-    <div class="track" onclick="toggle('t6')">
-      <div class="track-title">浜辺</div>
+
+    <div class="track" id="track-t6">
+      <div class="track-header">
+        <span class="title-text">光るパールを拾う</span>
+        <button class="toggle-btn" onclick="toggle('t6')">+</button>
+      </div>
       <div id="t6" class="track-body">ここに解説を書く</div>
     </div>
-    <div class="track" onclick="toggle('t7')">
-      <div class="track-title">Virus tr</div>
+
+    <div class="track" id="track-t7">
+      <div class="track-header">
+        <span class="title-text">浜辺</span>
+        <button class="toggle-btn" onclick="toggle('t7')">+</button>
+      </div>
       <div id="t7" class="track-body">ここに解説を書く</div>
     </div>
-    <div class="track" onclick="toggle('t8')">
-      <div class="track-title">DIMENTIA</div>
+
+    <div class="track" id="track-t8">
+      <div class="track-header">
+        <span class="title-text">Virus tr</span>
+        <button class="toggle-btn" onclick="toggle('t8')">+</button>
+      </div>
       <div id="t8" class="track-body">ここに解説を書く</div>
     </div>
-    <div class="track" onclick="toggle('t9')">
-      <div class="track-title">ANESTHANASIA</div>
-      <div id="t9" class="track-body">荒れ狂う水流に耐性をつけるべく、麻酔を受けた人々の末路。</div>
+
+    <div class="track" id="track-t9">
+      <div class="track-header">
+        <span class="title-text">DIMENTIA</span>
+        <button class="toggle-btn" onclick="toggle('t9')">+</button>
+      </div>
+      <div id="t9" class="track-body">ここに解説を書く</div>
     </div>
+
+    <div class="track" id="track-t10">
+      <div class="track-header">
+        <span class="title-text">ANESTHANASIA</span>
+        <button class="toggle-btn" onclick="toggle('t10')">+</button>
+      </div>
+      <div id="t10" class="track-body">荒れ狂う水流に耐性をつけるべく、麻酔を受けた人々の末路。</div>
+    </div>
+
   </div>
 
   <script>
@@ -127,10 +208,12 @@
       document.querySelectorAll('.track').forEach(t => {
         t.classList.remove('open');
         t.querySelector('.track-body').style.display = 'none';
+        t.querySelector('.toggle-btn').textContent = '+';
       });
       if (!isOpen) {
         track.classList.add('open');
         body.style.display = 'block';
+        track.querySelector('.toggle-btn').textContent = '−';
       }
     }
   </script>
