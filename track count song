@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>カウント・ソング — 底なき海</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;1,300&family=Noto+Serif+JP:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background-color: #0D2137;
+      color: #A8DADE;
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 300;
+      min-height: 100vh;
+    }
+
+    /* 背景画像 */
+    .bg {
+      position: fixed;
+      inset: 0;
+      background-image: url('count song wip.png');
+      background-size: cover;
+      background-position: center;
+      z-index: 0;
+    }
+    .bg-overlay {
+      position: fixed;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(13,33,55,0.5) 0%,
+        rgba(13,33,55,0.3) 40%,
+        rgba(13,33,55,0.75) 100%
+      );
+      z-index: 1;
+    }
+
+    /* ロゴ */
+    .logo {
+      position: fixed;
+      top: 1.2rem;
+      left: 1.5rem;
+      z-index: 100;
+    }
+    .logo img { height: 40px; }
+
+    /* 戻るリンク */
+    .back {
+      position: fixed;
+      top: 1.4rem;
+      right: 1.8rem;
+      z-index: 100;
+      color: #A8DADE;
+      text-decoration: none;
+      opacity: 0.4;
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      transition: opacity 0.3s;
+    }
+    .back:hover { opacity: 0.8; }
+
+    /* メインコンテンツ */
+    main {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 6rem 2rem 4rem;
+    }
+
+    .track-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      opacity: 0.4;
+      margin-bottom: 0.8rem;
+    }
+
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-style: italic;
+      font-size: 3rem;
+      letter-spacing: 0.06em;
+      color: #C8EAED;
+      text-shadow: 0 0 40px rgba(168,218,222,0.5), 0 0 80px rgba(168,218,222,0.2);
+      margin-bottom: 2.5rem;
+      line-height: 1.2;
+    }
+
+    .description {
+      font-size: 0.88rem;
+      line-height: 2.3;
+      opacity: 0.75;
+      letter-spacing: 0.05em;
+      margin-bottom: 4rem;
+      color: #E0F0F2;
+    }
+
+    /* 全曲リンク */
+    .all-tracks {
+      border-top: 1px solid transparent;
+      border-image: linear-gradient(to right, transparent, rgba(168,218,222,0.2), transparent) 1;
+      padding-top: 3rem;
+      margin-top: 2rem;
+    }
+
+    .all-tracks-label {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      opacity: 0.35;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+
+    .track-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      justify-content: center;
+    }
+
+    .track-links a {
+      color: #A8DADE;
+      text-decoration: none;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      padding: 6px 14px;
+      border: 1px solid rgba(168,218,222,0.2);
+      border-radius: 2px;
+      transition: background 0.3s, border-color 0.3s, text-shadow 0.3s;
+    }
+    .track-links a:hover {
+      background: rgba(168,218,222,0.08);
+      border-color: rgba(168,218,222,0.45);
+      text-shadow: 0 0 10px rgba(168,218,222,0.4);
+    }
+    .track-links a.current {
+      border-color: rgba(168,218,222,0.5);
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg"></div>
+  <div class="bg-overlay"></div>
+
+  <a href="index.html" class="logo">
+    <img src="176.png" alt="底なき海">
+  </a>
+  <a href="tracks.html" class="back">← 楽曲一覧</a>
+
+  <main>
+    <div class="track-num">Track 03</div>
+    <h1>カウント・ソング</h1>
+
+    <div class="description">
+      ここに解説を書く。
+    </div>
+
+    <div class="all-tracks">
+      <div class="all-tracks-label">tracks</div>
+      <div class="track-links">
+        <a href="track-e-blackhole.html">E-BlackHole</a>
+        <a href="track-sokonashi-machi.html">底なし街</a>
+        <a href="track-count-song.html" class="current">カウント・ソング</a>
+        <a href="track-fog-of-foam.html">Fog of Foam</a>
+        <a href="track-xabon.html">Xabónと泡</a>
+        <a href="track-virus.html">Virus tr</a>
+        <a href="track-atlantis.html">Ατλαντίς</a>
+        <a href="track-tr.html">tr</a>
+        <a href="track-dimension-whirl.html">DIMENSION WHIRL</a>
+        <a href="track-pearl.html">光るパールを拾う</a>
+        <a href="track-hamabe.html">浜辺</a>
+      </div>
+    </div>
+  </main>
+
+</body>
+</html>
